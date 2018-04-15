@@ -1,0 +1,69 @@
+.catalog:
+  name: "Route53 DNS"
+  version: "v0.1.5-rancher1"
+  description: "Rancher External DNS service powered by Amazon Route53. Requires Rancher version 0.44.0"
+  maximum_rancher_version: v1.1.99
+  questions:
+    - variable: "DATABASE_USER"
+      label: "Database username"
+      description: "Database username for taiga"
+      type: "string"
+      default: "taiga"
+      required: true
+    - variable: "DATABASE_NAME"
+      label: "Database name"
+      description: "Database name for taiga"
+      type: "string"
+      default: "taiga"
+      required: true
+    - variable: "DATABASE_PASSWORD"
+      label: "Database password"
+      description: "Database password for taiga"
+      type: "password"
+      default: "mydefaultpassword"
+      required: true
+    - variable: "RABBIT_SECRET_COOKIE"
+      label: "Secret cookie"
+      description: "Secret cookie key for rabbitmq"
+      type: "string"
+      default: "MYRABBITSCRETKEY"
+      required: true
+    - variable: "RABBIT_USER"
+      label: "RabbitMQ user"
+      description: "username for rabbitmq"
+      type: "string"
+      default: "taiga"
+      required: true
+    - variable: "RABBIT_PASSWORD"
+      label: "RabbitMQ password"
+      description: "password for rabbitmq"
+      type: "password"
+      default: "taiga"
+      required: true
+    - variable: "RABBIT_VHOST"
+      label: "RabbitMQ virtual host"
+      description: "virtual host for rabbitmq"
+      type: "string"
+      default: "taiga"
+      required: true
+    - variable: "DJANGO_SECRET"
+      label: "Django secret key"
+      description: "Secret key for django"
+      type: "string"
+      default: "MYSECRETKEY"
+      required: true
+
+postgresql:
+  scale: 1
+redis:
+  scale: 1
+rabbitmq:
+  scale: 1
+backend:
+  scale: 1
+frontend:
+  scale: 1
+celeryworker:
+  scale: 1
+events:
+  scale: 1
