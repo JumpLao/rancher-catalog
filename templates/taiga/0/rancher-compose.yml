@@ -1,68 +1,100 @@
-.catalog:
-  name: "Taiga"
-  version: "v3.1.3"
-  description: "Taiga project management system"
-  questions:
-    - variable: "DATABASE_USER"
-      label: "Database username"
-      description: "Database username for taiga"
-      type: "string"
-      default: "taiga"
-      required: true
-    - variable: "DATABASE_NAME"
-      label: "Database name"
-      description: "Database name for taiga"
-      type: "string"
-      default: "taiga"
-      required: true
-    - variable: "DATABASE_PASSWORD"
-      label: "Database password"
-      description: "Database password for taiga"
-      type: "password"
-      default: "mydefaultpassword"
-      required: true
-    - variable: "RABBIT_SECRET_COOKIE"
-      label: "Secret cookie"
-      description: "Secret cookie key for rabbitmq"
-      type: "string"
-      default: "MYRABBITSCRETKEY"
-      required: true
-    - variable: "RABBIT_USER"
-      label: "RabbitMQ user"
-      description: "username for rabbitmq"
-      type: "string"
-      default: "taiga"
-      required: true
-    - variable: "RABBIT_PASSWORD"
-      label: "RabbitMQ password"
-      description: "password for rabbitmq"
-      type: "password"
-      default: "taiga"
-      required: true
-    - variable: "RABBIT_VHOST"
-      label: "RabbitMQ virtual host"
-      description: "virtual host for rabbitmq"
-      type: "string"
-      default: "taiga"
-      required: true
-    - variable: "DJANGO_SECRET"
-      label: "Django secret key"
-      description: "Secret key for django"
-      type: "string"
-      default: "MYSECRETKEY"
-      required: true
+  .catalog:
+    name: "Taiga"
+    version: "v3.1.3"
+    description: "Taiga project management system"
+    questions:
+      - variable: "TAIGA_HOSTNAME"
+        label: "Taiga hostname"
+        description: "Hostname for taiga"
+        type: "string"
+        default: "taiga.example.com"
+        required: true
+      - variable: "TAIGA_PROTOCOL"
+        label: "Taiga protocol"
+        description: "Protocol for taiga http or https"
+        type: "string"
+        default: "http"
+        required: true
+      - variable: "TAIGA_EVENT_PROTOCOL"
+        label: "Taiga event protocol"
+        description: "Protocol for taiga event ws or wss"
+        type: "string"
+        default: "ws"
+        required: true
+      - variable: "USE_ANYMAIL"
+        label: "Use anymail"
+        description: "Use anymail if use, need to provide mail gun api and default mail"
+        type: "boolean"
+        default: false
+        required: true
+      - variable: "ANYMAIL_MAILGUN_API_KEY"
+        label: "Mailgun api key"
+        description: "mailgun api key for any mail service"
+        type: "string"
+      - variable: "DJANGO_DEFAULT_FROM_EMAIL"
+        label: "default email"
+        description: "default email for send email"
+        type: "string"
+      - variable: "DATABASE_USER"
+        label: "Database username"
+        description: "Database username for taiga"
+        type: "string"
+        default: "taiga"
+        required: true
+      - variable: "DATABASE_NAME"
+        label: "Database name"
+        description: "Database name for taiga"
+        type: "string"
+        default: "taiga"
+        required: true
+      - variable: "DATABASE_PASSWORD"
+        label: "Database password"
+        description: "Database password for taiga"
+        type: "password"
+        default: "mydefaultpassword"
+        required: true
+      - variable: "RABBIT_SECRET_COOKIE"
+        label: "Secret cookie"
+        description: "Secret cookie key for rabbitmq"
+        type: "string"
+        default: "MYRABBITSCRETKEY"
+        required: true
+      - variable: "RABBIT_USER"
+        label: "RabbitMQ user"
+        description: "username for rabbitmq"
+        type: "string"
+        default: "taiga"
+        required: true
+      - variable: "RABBIT_PASSWORD"
+        label: "RabbitMQ password"
+        description: "password for rabbitmq"
+        type: "password"
+        default: "taiga"
+        required: true
+      - variable: "RABBIT_VHOST"
+        label: "RabbitMQ virtual host"
+        description: "virtual host for rabbitmq"
+        type: "string"
+        default: "taiga"
+        required: true
+      - variable: "DJANGO_SECRET"
+        label: "Django secret key"
+        description: "Secret key for django"
+        type: "string"
+        default: "MYSECRETKEY"
+        required: true
 
-postgresql:
-  scale: 1
-redis:
-  scale: 1
-rabbitmq:
-  scale: 1
-backend:
-  scale: 1
-frontend:
-  scale: 1
-celeryworker:
-  scale: 1
-events:
-  scale: 1
+  postgresql:
+    scale: 1
+  redis:
+    scale: 1
+  rabbitmq:
+    scale: 1
+  backend:
+    scale: 1
+  frontend:
+    scale: 1
+  celeryworker:
+    scale: 1
+  events:
+    scale: 1
